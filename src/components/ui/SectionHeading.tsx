@@ -21,10 +21,10 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className={`mb-12 ${centered ? "text-center" : ""}`}
+      className={`mb-8 sm:mb-12 ${centered ? "text-center" : ""}`}
     >
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
+        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2 ${
           light ? "text-white" : "text-gray-900"
         }`}
       >
@@ -32,7 +32,7 @@ export default function SectionHeading({
       </h2>
       {subtitle && (
         <p
-          className={`text-lg md:text-xl max-w-3xl ${
+          className={`text-base sm:text-lg md:text-xl max-w-3xl px-2 ${
             centered ? "mx-auto" : ""
           } ${light ? "text-gray-300" : "text-gray-600"}`}
         >

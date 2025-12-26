@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left mx-auto lg:mx-0"
           >
             {/* Badge */}
             <motion.div
@@ -45,13 +45,9 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Professional{" "}
-              <span className="text-[#C41E3A]">Pressure Washing</span> &{" "}
-              <span className="text-[#C41E3A]">Soft Washing</span>
-            </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Professional Pressure Washing & Soft Washing</h1>
 
-            <p className="text-xl text-gray-300 mb-8 max-w-xl">
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
               Transform your property with Charlotte's most trusted exterior
               cleaning service. Residential & commercial properties expertly
               cleaned.

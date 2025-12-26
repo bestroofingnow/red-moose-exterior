@@ -6,7 +6,7 @@ import { siteConfig } from "@/data/siteData";
 
 export default function CTA() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#C41E3A] to-[#9B1830]" />
 
@@ -22,10 +22,10 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
             Ready to Transform Your Property?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Get a free, no-obligation estimate today. We'll assess your property
             and provide a detailed quote within 24 hours.
           </p>
@@ -33,7 +33,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#C41E3A] font-bold rounded-lg hover:bg-gray-100 transition-all hover:scale-105 shadow-lg text-lg"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#C41E3A] font-bold rounded-lg hover:bg-gray-100 transition-all hover:scale-105 shadow-lg text-base sm:text-lg"
             >
               Get Your Free Quote
               <svg
@@ -52,7 +52,7 @@ export default function CTA() {
             </Link>
             <a
               href={"tel:" + siteConfig.phone}
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all text-lg"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all text-base sm:text-lg"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -72,7 +72,7 @@ export default function CTA() {
           </div>
 
           {/* Trust Line */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8 text-white/80">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 text-white/80 text-sm sm:text-base">
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path

@@ -60,12 +60,12 @@ export default function Header() {
             )}
           </Link>
 
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.slice(0, 6).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors ${
+                className={`font-medium transition-colors whitespace-nowrap ${
                   isScrolled
                     ? "text-gray-700 hover:text-[#C41E3A]"
                     : "text-white hover:text-[#C41E3A] drop-shadow"

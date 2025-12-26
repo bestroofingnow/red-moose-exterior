@@ -60,12 +60,12 @@ export default function Header() {
             )}
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav className="hidden lg:flex items-center" style={{ gap: "1.5rem" }}>
             {navLinks.slice(0, 6).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors whitespace-nowrap ${
+                className={`font-medium transition-colors whitespace-nowrap px-2 py-1 ${
                   isScrolled
                     ? "text-gray-700 hover:text-[#C41E3A]"
                     : "text-white hover:text-[#C41E3A] drop-shadow"
@@ -74,7 +74,7 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-          </div>
+          </nav>
 
           <div className="hidden md:flex items-center space-x-4">
             <a

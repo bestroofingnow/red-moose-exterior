@@ -113,9 +113,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Better touch targets on mobile */
 @media (pointer: coarse) {
-  button, a {
+  button {
     min-height: 44px;
-    min-width: 44px;
   }
 }
 

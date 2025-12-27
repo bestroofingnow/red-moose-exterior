@@ -10,8 +10,11 @@ export const siteConfig = {
   propertiesCleaned: 1000,
   satisfactionRate: 99,
   rating: 4.9,
+  reviewCount: 127,
   socialLinks: {
     facebook: "https://facebook.com/redmooseexterior",
+    instagram: "https://instagram.com/redmooseexterior",
+    google: "https://g.page/redmooseexterior",
   },
 };
 

@@ -4,7 +4,26 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTA from "@/components/sections/CTA";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { faqs } from "@/data/siteData";
+
+// FAQ Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    ...faqs.pressureWashing,
+    ...faqs.softWashing,
+    ...faqs.general,
+  ].map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 type Category = "all" | "pressureWashing" | "softWashing" | "general";
 
@@ -41,8 +60,19 @@ export default function FAQPage() {
 
   return (
     <>
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* Breadcrumbs */}
+      <div className="pt-20 bg-white border-b">
+        <Breadcrumbs />
+      </div>
+
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-gray-900">
+      <section className="pt-12 pb-12 bg-gray-900">
         <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Frequently Asked Questions

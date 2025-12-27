@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 
 export default function CustomCursor() {
@@ -9,7 +8,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [facingLeft, setFacingLeft] = useState(false);
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const cursorRef = useRef<HTMLDivElement>(null);
   const lastXRef = useRef(0);
 
   useEffect(() => {
@@ -21,15 +20,18 @@ export default function CustomCursor() {
     document.body.classList.add("custom-cursor-active");
 
     const moveCursor = (e: MouseEvent) => {
+      // Update DOM directly for instant response - bypass React state
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${e.clientX}px`;
+        cursorRef.current.style.top = `${e.clientY}px`;
+      }
+
       // Determine direction based on movement
       const deltaX = e.clientX - lastXRef.current;
       if (Math.abs(deltaX) > 2) {
         setFacingLeft(deltaX < 0);
       }
       lastXRef.current = e.clientX;
-
-      // Update position instantly (no spring/delay)
-      setPosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -75,21 +77,26 @@ export default function CustomCursor() {
 
   if (!isVisible) return null;
 
+  // Calculate scale based on state
+  const scale = isClicking ? 0.8 : isHovering ? 1.2 : 1;
+  const scaleX = facingLeft ? -scale : scale;
+
   return (
     <div
+      ref={cursorRef}
       className="fixed pointer-events-none z-[9999]"
       style={{
-        left: position.x,
-        top: position.y,
+        left: -100,
+        top: -100,
         transform: "translate(-50%, -50%)",
+        willChange: "left, top",
       }}
     >
-      <motion.div
-        animate={{
-          scale: isClicking ? 0.8 : isHovering ? 1.2 : 1,
-          scaleX: facingLeft ? -1 : 1,
+      <div
+        style={{
+          transform: `scale(${scaleX}, ${scale})`,
+          transition: "transform 0.1s ease-out",
         }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
         <Image
           src="/images/moose-cursor.png"
@@ -98,8 +105,9 @@ export default function CustomCursor() {
           height={48}
           className="w-12 h-12 object-contain"
           priority
+          unoptimized
         />
-      </motion.div>
+      </div>
     </div>
   );
 }

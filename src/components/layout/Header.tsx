@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/siteData";
@@ -9,6 +10,7 @@ import { siteConfig, navLinks } from "@/data/siteData";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,39 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const isActivePage = useCallback((href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }, [pathname]);
 
   return (
     <header
@@ -56,22 +91,32 @@ export default function Header() {
             className="hidden lg:block"
             aria-label="Main navigation"
           >
-            <ul className="flex items-center gap-8">
-              {navLinks.slice(0, 6).map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-sm font-medium transition-colors hover:text-[#C41E3A] ${
-                      isScrolled
-                        ? "text-gray-700"
-                        : "text-white"
-                    }`}
-                    style={isScrolled ? {} : { color: '#ffffff' }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+            <ul className="flex items-center gap-8" role="menubar">
+              {navLinks.slice(0, 6).map((link) => {
+                const isActive = isActivePage(link.href);
+                return (
+                  <li key={link.href} role="none">
+                    <Link
+                      href={link.href}
+                      role="menuitem"
+                      aria-current={isActive ? "page" : undefined}
+                      className={`text-sm font-medium transition-colors hover:text-[#C41E3A] relative py-2 ${
+                        isScrolled
+                          ? isActive
+                            ? "text-[#C41E3A]"
+                            : "text-gray-700"
+                          : "text-white"
+                      }`}
+                      style={isScrolled ? {} : { color: isActive ? '#C41E3A' : '#ffffff' }}
+                    >
+                      {link.name}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C41E3A] rounded-full" />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -150,18 +195,26 @@ export default function Header() {
 
               {/* Mobile Nav Links */}
               <nav aria-label="Mobile navigation">
-                <ul className="space-y-1">
-                  {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-gray-800 font-medium py-3 px-4 hover:text-[#C41E3A] hover:bg-gray-50 rounded-lg text-center transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
+                <ul className="space-y-1" role="menu">
+                  {navLinks.map((link) => {
+                    const isActive = isActivePage(link.href);
+                    return (
+                      <li key={link.href} role="none">
+                        <Link
+                          href={link.href}
+                          role="menuitem"
+                          aria-current={isActive ? "page" : undefined}
+                          className={`block font-medium py-3 px-4 rounded-lg text-center transition-colors ${
+                            isActive
+                              ? "text-[#C41E3A] bg-[#C41E3A]/10"
+                              : "text-gray-800 hover:text-[#C41E3A] hover:bg-gray-50"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
 

@@ -82,6 +82,7 @@ export default function Header() {
               className={`w-auto object-contain transition-all ${
                 isScrolled ? "h-6 md:h-7" : "h-7 md:h-8"
               }`}
+              style={isScrolled ? {} : { filter: "brightness(0) invert(1)" }}
               priority
             />
           </Link>
@@ -136,7 +137,8 @@ export default function Header() {
             </a>
             <Link
               href="/contact"
-              className="bg-[#C41E3A] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#9B1830] transition-all hover:scale-105 shadow-lg"
+              className="bg-[#C41E3A] px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#9B1830] transition-all hover:scale-105 shadow-lg"
+              style={{ color: "#ffffff" }}
             >
               Get Free Quote
             </Link>
@@ -243,7 +245,8 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block bg-[#C41E3A] text-white text-center px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#9B1830] transition-colors"
+                  className="block bg-[#C41E3A] text-center px-6 py-4 rounded-lg font-bold text-lg hover:bg-[#9B1830] transition-colors"
+                  style={{ color: "#ffffff" }}
                 >
                   Get Free Quote
                 </Link>

@@ -31,7 +31,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
+            className="text-center"
           >
             {/* Badge */}
             <motion.div
@@ -54,14 +54,14 @@ export default function Hero() {
               Professional Pressure Washing & Soft Washing
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl mx-auto">
               Transform your property with Charlotte&apos;s most trusted exterior
               cleaning service. Residential & commercial properties expertly
               cleaned.
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 mb-8 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 mb-8 justify-center">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-5 h-5 text-green-400 shrink-0"
@@ -74,7 +74,7 @@ export default function Hero() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-white text-sm">Licensed & Insured</span>
+                <span className="text-sm" style={{ color: "#ffffff" }}>Licensed & Insured</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg
@@ -88,7 +88,7 @@ export default function Hero() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-white text-sm">Free Estimates</span>
+                <span className="text-sm" style={{ color: "#ffffff" }}>Free Estimates</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg
@@ -98,17 +98,18 @@ export default function Hero() {
                 >
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                <span className="text-white text-sm">
+                <span className="text-sm" style={{ color: "#ffffff" }}>
                   {siteConfig.rating}/5 Rating
                 </span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#C41E3A] text-white font-bold rounded-lg hover:bg-[#9B1830] transition-all hover:scale-105 shadow-lg text-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#C41E3A] font-bold rounded-lg hover:bg-[#9B1830] transition-all hover:scale-105 shadow-lg text-lg"
+                style={{ color: "#ffffff" }}
               >
                 Get Free Quote
                 <svg
@@ -127,7 +128,8 @@ export default function Hero() {
               </Link>
               <Link
                 href="/gallery"
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-[#C41E3A] transition-all text-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white font-bold rounded-lg hover:bg-white hover:text-[#C41E3A] transition-all text-lg"
+                style={{ color: "#ffffff" }}
               >
                 See Transformations
               </Link>

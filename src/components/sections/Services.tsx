@@ -113,8 +113,21 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Separator */}
+        <div className="mt-16 lg:mt-20 mb-12 lg:mb-16">
+          <div className="flex items-center justify-center gap-4">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-gray-300 max-w-32" />
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-[#C41E3A] rounded-full" />
+              <div className="w-3 h-3 bg-[#C41E3A] rounded-full" />
+              <div className="w-2 h-2 bg-[#C41E3A] rounded-full" />
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gray-300 to-gray-300 max-w-32" />
+          </div>
+        </div>
+
         {/* Service Pathways */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mt-16 lg:mt-20">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Residential */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

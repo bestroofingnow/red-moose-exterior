@@ -29,7 +29,7 @@ export default function SoftWashingPage() {
             className="object-cover opacity-30"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative container-main">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-1 bg-[#C41E3A] text-white text-sm font-medium rounded-full mb-4">
               Gentle & Effective
@@ -60,7 +60,7 @@ export default function SoftWashingPage() {
 
       {/* Why Soft Washing Section */}
       <section id="why-soft-wash" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -128,7 +128,7 @@ export default function SoftWashingPage() {
 
       {/* Residential Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               {softWashingImages.length > 0 ? (
@@ -214,7 +214,7 @@ export default function SoftWashingPage() {
 
       {/* Commercial Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-[#C41E3A] font-semibold">
@@ -292,7 +292,7 @@ export default function SoftWashingPage() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-3xl">
           <SectionHeading
             title="Soft Washing FAQs"
             subtitle="Common questions about our soft washing services"

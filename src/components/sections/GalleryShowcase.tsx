@@ -11,14 +11,14 @@ export default function GalleryShowcase() {
   const showcaseItems = galleryImages.slice(0, 3);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-white">
+      <div className="container-main">
         <SectionHeading
           title="See the Transformation"
           subtitle="Drag the slider to see the before and after results of our professional cleaning services."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {showcaseItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -26,28 +26,35 @@ export default function GalleryShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="space-y-4"
+              className="group"
             >
-              <BeforeAfterSlider
-                beforeImage={item.before}
-                afterImage={item.after}
-              />
-              <div className="text-center">
-                <h3 className="font-bold text-gray-900">{item.title}</h3>
-                <p className="text-gray-500 text-sm">{item.surface}</p>
+              <div className="rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
+                <BeforeAfterSlider
+                  beforeImage={item.before}
+                  afterImage={item.after}
+                />
+              </div>
+              <div className="text-center mt-4">
+                <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
+                <p className="text-gray-500 text-sm mt-1">{item.surface}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-12 lg:mt-16"
+        >
           <Link
             href="/gallery"
-            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all hover:scale-105 shadow-lg group"
           >
             View Full Gallery
             <svg
-              className="w-5 h-5 ml-2"
+              className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -60,7 +67,7 @@ export default function GalleryShowcase() {
               />
             </svg>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -99,7 +99,7 @@ export default function ContactPage() {
   if (isSubmitted) {
     return (
       <div className="min-h-screen pt-32 pb-20 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 text-center">
+        <div className="container-main max-w-2xl text-center">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -142,7 +142,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="pt-32 pb-12 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get Your Free Quote
           </h1>
@@ -155,7 +155,7 @@ export default function ContactPage() {
 
       {/* Form Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-4xl">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Form */}
             <div className="lg:col-span-2">

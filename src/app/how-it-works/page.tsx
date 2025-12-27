@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
     <>
       {/* Hero */}
       <section className="pt-32 pb-12 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             How It Works
           </h1>
@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
 
       {/* Detailed Steps */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-4xl">
           <SectionHeading
             title="What to Expect"
             subtitle="A detailed look at each step of our service process"
@@ -357,7 +357,7 @@ export default function HowItWorksPage() {
 
       {/* Comparison */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-4xl">
           <SectionHeading
             title="Pressure Washing vs. Soft Washing"
             subtitle="Understanding when to use each method"

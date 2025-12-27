@@ -28,7 +28,7 @@ export default function GalleryPage() {
     <>
       {/* Hero */}
       <section className="pt-32 pb-12 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Before & After Gallery
           </h1>
@@ -41,7 +41,7 @@ export default function GalleryPage() {
 
       {/* Filters */}
       <section className="py-8 bg-gray-100 sticky top-16 z-30 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="flex flex-wrap items-center justify-center gap-4">
             {/* Service Filter */}
             <div className="flex items-center gap-2">
@@ -92,7 +92,7 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="flex items-center justify-between mb-8">
             <p className="text-gray-600">
               Showing {filteredImages.length} of {galleryImages.length} projects
@@ -166,7 +166,7 @@ export default function GalleryPage() {
 
       {/* Stats */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-[#C41E3A]">

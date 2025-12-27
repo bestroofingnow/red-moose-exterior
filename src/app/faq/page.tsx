@@ -43,7 +43,7 @@ export default function FAQPage() {
     <>
       {/* Hero */}
       <section className="pt-32 pb-12 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Frequently Asked Questions
           </h1>
@@ -56,7 +56,7 @@ export default function FAQPage() {
 
       {/* Search & Filters */}
       <section className="py-8 bg-gray-100 sticky top-16 z-30 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-4xl">
           {/* Search */}
           <div className="relative mb-6">
             <input
@@ -102,7 +102,7 @@ export default function FAQPage() {
 
       {/* FAQ List */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main max-w-4xl">
           <div className="mb-6 text-gray-600">
             Showing {filteredFaqs.length} of {allFaqs.length} questions
           </div>
@@ -213,7 +213,7 @@ export default function FAQPage() {
 
       {/* Still Have Questions */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-main max-w-2xl text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Still Have Questions?
           </h2>

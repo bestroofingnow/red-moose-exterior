@@ -21,18 +21,26 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className={`mb-8 sm:mb-12 ${centered ? "text-center" : ""}`}
+      className={`mb-12 sm:mb-16 ${centered ? "text-center" : ""}`}
     >
       <h2
-        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2 ${
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-5 ${
           light ? "text-white" : "text-gray-900"
         }`}
       >
         {title}
       </h2>
+
+      {/* Decorative accent line */}
+      <div className={`flex items-center gap-3 mb-5 sm:mb-6 ${centered ? "justify-center" : ""}`}>
+        <div className={`h-1 w-12 rounded-full ${light ? "bg-white/40" : "bg-gray-200"}`} />
+        <div className="h-1.5 w-16 rounded-full bg-[#C41E3A]" />
+        <div className={`h-1 w-12 rounded-full ${light ? "bg-white/40" : "bg-gray-200"}`} />
+      </div>
+
       {subtitle && (
         <p
-          className={`text-base sm:text-lg md:text-xl max-w-3xl px-2 ${
+          className={`text-lg sm:text-xl max-w-2xl leading-relaxed ${
             centered ? "mx-auto" : ""
           } ${light ? "text-gray-300" : "text-gray-600"}`}
         >

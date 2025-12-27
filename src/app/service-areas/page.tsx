@@ -13,17 +13,20 @@ export const metadata: Metadata = {
 const areaDetails = [
   {
     name: "Charlotte",
-    description: "Our home base. We serve all Charlotte neighborhoods including Uptown, SouthPark, Myers Park, Dilworth, NoDa, Plaza Midwood, and more.",
+    description:
+      "Our home base. We serve all Charlotte neighborhoods including Uptown, SouthPark, Myers Park, Dilworth, NoDa, Plaza Midwood, and more.",
     popular: true,
   },
   {
     name: "Huntersville",
-    description: "Full service coverage for Huntersville residential and commercial properties.",
+    description:
+      "Full service coverage for Huntersville residential and commercial properties.",
     popular: true,
   },
   {
     name: "Cornelius",
-    description: "Lake Norman area coverage including Cornelius and surrounding communities.",
+    description:
+      "Lake Norman area coverage including Cornelius and surrounding communities.",
     popular: false,
   },
   {
@@ -33,22 +36,26 @@ const areaDetails = [
   },
   {
     name: "Matthews",
-    description: "Complete coverage for Matthews and the surrounding southeast Charlotte area.",
+    description:
+      "Complete coverage for Matthews and the surrounding southeast Charlotte area.",
     popular: true,
   },
   {
     name: "Mint Hill",
-    description: "Residential and commercial pressure washing services in Mint Hill.",
+    description:
+      "Residential and commercial pressure washing services in Mint Hill.",
     popular: false,
   },
   {
     name: "Pineville",
-    description: "Serving Pineville businesses and homeowners along the Carolina border.",
+    description:
+      "Serving Pineville businesses and homeowners along the Carolina border.",
     popular: false,
   },
   {
     name: "Indian Trail",
-    description: "Coverage for the growing Indian Trail community and Union County.",
+    description:
+      "Coverage for the growing Indian Trail community and Union County.",
     popular: false,
   },
 ];
@@ -57,12 +64,12 @@ export default function ServiceAreasPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 sm:pt-32 pb-10 sm:pb-12 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+      <section className="pt-32 md:pt-40 pb-12 md:pb-16 bg-gray-900">
+        <div className="container-main text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Service Areas
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
             Red Moose Exterior proudly serves Charlotte, NC and the surrounding
             communities. Check if we service your area.
           </p>
@@ -70,14 +77,14 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Map Placeholder & Areas */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-white">
+        <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Map Visual */}
-            <div className="bg-gray-100 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px]">
+            <div className="bg-gray-100 rounded-2xl p-8 flex flex-col items-center justify-center min-h-[350px] sm:min-h-[400px]">
               <div className="text-center">
                 <svg
-                  className="w-16 h-16 sm:w-24 sm:h-24 text-[#C41E3A] mx-auto mb-4"
+                  className="w-20 h-20 text-[#C41E3A] mx-auto mb-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -95,10 +102,10 @@ export default function ServiceAreasPage() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Charlotte Metro Area
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-6">
                   We serve a 30-mile radius around Charlotte, NC
                 </p>
                 <div className="bg-white rounded-xl p-4 shadow-sm">
@@ -106,7 +113,7 @@ export default function ServiceAreasPage() {
                     Not sure if we serve your area?
                   </p>
                   <a
-                    href={"tel:" + siteConfig.phone}
+                    href={`tel:${siteConfig.phone}`}
                     className="text-[#C41E3A] font-semibold hover:underline"
                   >
                     Call us: {siteConfig.phone}
@@ -117,14 +124,14 @@ export default function ServiceAreasPage() {
 
             {/* Areas List */}
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center lg:text-left">
                 Areas We Serve
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {areaDetails.map((area) => (
                   <div
                     key={area.name}
-                    className={`p-4 rounded-xl border-2 ${
+                    className={`p-4 rounded-xl border-2 transition-shadow hover:shadow-md ${
                       area.popular
                         ? "border-[#C41E3A] bg-[#C41E3A]/5"
                         : "border-gray-200 bg-white"
@@ -148,14 +155,14 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* All Service Areas */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-gray-50">
+        <div className="container-main">
           <SectionHeading
             title="Complete Service Area List"
             subtitle="All neighborhoods and communities we serve in the Charlotte metro area"
           />
 
-          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {serviceAreas.map((area) => (
               <div
                 key={area}
@@ -177,13 +184,13 @@ export default function ServiceAreasPage() {
             ))}
           </div>
 
-          <div className="text-center mt-8 sm:mt-12">
+          <div className="text-center mt-10">
             <p className="text-gray-600 mb-4">
-              Don't see your area listed? We may still be able to help!
+              Don&apos;t see your area listed? We may still be able to help!
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#C41E3A] text-white font-semibold rounded-lg hover:bg-[#9B1830] transition-all"
+              className="inline-flex items-center px-6 py-3 bg-[#C41E3A] text-white font-semibold rounded-lg hover:bg-[#9B1830] transition-all hover:scale-105"
             >
               Request Service in Your Area
             </Link>
@@ -192,20 +199,20 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Why Local Matters */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-white">
+        <div className="container-main max-w-4xl">
           <SectionHeading
             title="Why Local Expertise Matters"
             subtitle="Charlotte's climate presents unique cleaning challenges we understand"
           />
 
-          <div className="mt-8 sm:mt-12 grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="mt-10 grid sm:grid-cols-2 gap-6">
             <div className="bg-gray-50 p-6 rounded-xl">
               <h3 className="font-bold text-gray-900 mb-3">
                 Humidity & Mold Growth
               </h3>
               <p className="text-gray-600">
-                Charlotte's humid climate promotes mold, mildew, and algae
+                Charlotte&apos;s humid climate promotes mold, mildew, and algae
                 growth on exterior surfaces. We understand the specific
                 challenges this creates and use the right techniques to address
                 them.
@@ -226,7 +233,7 @@ export default function ServiceAreasPage() {
                 Local Building Materials
               </h3>
               <p className="text-gray-600">
-                We're familiar with the common building materials and
+                We&apos;re familiar with the common building materials and
                 construction styles in Charlotte, from historic Dilworth homes
                 to modern SouthPark developments.
               </p>
@@ -236,7 +243,7 @@ export default function ServiceAreasPage() {
                 Community Reputation
               </h3>
               <p className="text-gray-600">
-                As a local business, our reputation matters. We're invested in
+                As a local business, our reputation matters. We&apos;re invested in
                 the Charlotte community and committed to delivering exceptional
                 service to our neighbors.
               </p>

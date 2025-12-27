@@ -20,15 +20,15 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-gray-900">
+      <div className="container-main">
         <SectionHeading
           title="What Our Customers Say"
           subtitle="Don't just take our word for it. Here's what property owners across Charlotte have to say."
           light
         />
 
-        <div className="relative mt-12">
+        <div className="relative max-w-5xl mx-auto">
           {/* Main Testimonial */}
           <div className="relative overflow-hidden">
             <AnimatePresence mode="wait">
@@ -38,11 +38,11 @@ export default function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl p-8 md:p-12"
+                className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl"
               >
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
                   {/* Image */}
-                  <div className="relative h-64 md:h-80 rounded-xl overflow-hidden">
+                  <div className="relative h-64 sm:h-72 md:h-80 rounded-xl overflow-hidden shadow-lg">
                     <Image
                       src={testimonials[currentIndex].image}
                       alt={testimonials[currentIndex].name}
@@ -54,7 +54,7 @@ export default function Testimonials() {
                   {/* Content */}
                   <div>
                     {/* Stars */}
-                    <div className="flex gap-1 mb-4">
+                    <div className="flex gap-1 mb-5">
                       {[...Array(testimonials[currentIndex].rating)].map(
                         (_, i) => (
                           <svg
@@ -70,19 +70,19 @@ export default function Testimonials() {
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="text-xl text-gray-700 mb-6 italic">
-                      "{testimonials[currentIndex].quote}"
+                    <blockquote className="text-lg sm:text-xl text-gray-700 mb-6 italic leading-relaxed">
+                      &ldquo;{testimonials[currentIndex].quote}&rdquo;
                     </blockquote>
 
                     {/* Author */}
                     <div>
-                      <p className="font-bold text-gray-900">
+                      <p className="font-bold text-gray-900 text-lg">
                         {testimonials[currentIndex].name}
                       </p>
                       <p className="text-gray-500">
                         {testimonials[currentIndex].location}
                       </p>
-                      <span className="inline-block mt-2 px-3 py-1 bg-[#C41E3A]/10 text-[#C41E3A] rounded-full text-sm">
+                      <span className="inline-block mt-3 px-4 py-1.5 bg-[#C41E3A]/10 text-[#C41E3A] rounded-full text-sm font-medium">
                         {testimonials[currentIndex].service}
                       </span>
                     </div>
@@ -93,7 +93,7 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-4 mt-10">
             <button
               onClick={prevTestimonial}
               className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
@@ -120,10 +120,10 @@ export default function Testimonials() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
+                  className={`h-3 rounded-full transition-all ${
                     index === currentIndex
                       ? "bg-[#C41E3A] w-8"
-                      : "bg-white/30 hover:bg-white/50"
+                      : "bg-white/30 hover:bg-white/50 w-3"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

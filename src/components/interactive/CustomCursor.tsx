@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
+import Image from "next/image";
 
 export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
@@ -74,7 +75,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor - Moose Head Outline */}
+      {/* Main cursor - Animated Moose GIF */}
       <motion.div
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
@@ -85,67 +86,23 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
       >
-        <motion.svg
-          width="40"
-          height="40"
-          viewBox="0 0 100 100"
+        <motion.div
           animate={{
-            scale: isClicking ? 0.8 : isHovering ? 1.2 : 1,
-            rotate: isHovering ? 5 : 0,
+            scale: isClicking ? 0.8 : isHovering ? 1.3 : 1,
+            rotate: isHovering ? 10 : 0,
           }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
-          {/* Moose head outline */}
-          <motion.path
-            d="M50 10 
-               C35 10 25 25 25 40
-               L15 35 L10 45 L20 50
-               C20 55 22 60 25 65
-               L25 80 C25 85 30 90 50 90 C70 90 75 85 75 80
-               L75 65 C78 60 80 55 80 50
-               L90 45 L85 35 L75 40
-               C75 25 65 10 50 10Z"
-            fill="none"
-            stroke={isHovering ? "#C41E3A" : "#1F2937"}
-            strokeWidth="3"
-            animate={{
-              stroke: isHovering ? "#C41E3A" : "#1F2937",
-            }}
+          <Image
+            src="/images/moose-cursor.gif"
+            alt=""
+            width={48}
+            height={48}
+            className="w-12 h-12 object-contain"
+            unoptimized
+            priority
           />
-          {/* Eyes */}
-          <motion.circle
-            cx="40"
-            cy="45"
-            r="4"
-            fill={isHovering ? "#C41E3A" : "#1F2937"}
-          />
-          <motion.circle
-            cx="60"
-            cy="45"
-            r="4"
-            fill={isHovering ? "#C41E3A" : "#1F2937"}
-          />
-          {/* Nose */}
-          <motion.ellipse
-            cx="50"
-            cy="65"
-            rx="8"
-            ry="6"
-            fill={isHovering ? "#C41E3A" : "#1F2937"}
-          />
-          {/* Antlers */}
-          <motion.path
-            d="M25 35 L15 20 M15 20 L10 25 M15 20 L20 20
-               M75 35 L85 20 M85 20 L90 25 M85 20 L80 20"
-            fill="none"
-            stroke={isHovering ? "#C41E3A" : "#1F2937"}
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            animate={{
-              strokeWidth: isHovering ? 3 : 2.5,
-            }}
-          />
-        </motion.svg>
+        </motion.div>
       </motion.div>
 
       {/* Trail effect */}
@@ -158,7 +115,7 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          scale: isHovering ? 2 : 1,
+          scale: isHovering ? 2.5 : 1,
           opacity: isHovering ? 0.5 : 0.3,
         }}
         transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.05 }}

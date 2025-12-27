@@ -3,13 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/interactive/BeforeAfterSlider";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CTA from "@/components/sections/CTA";
 import { services, faqs, galleryImages } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Pressure Washing Services",
+  title: "Pressure Washing Services Charlotte NC | Driveways, Patios & More",
   description:
-    "Professional pressure washing services in Charlotte, NC. Driveways, patios, decks, parking lots, and more. Industrial-grade equipment for superior results.",
+    "Professional pressure washing services in Charlotte, NC. Expert cleaning for driveways, patios, decks, parking lots, and more. Licensed, insured, free estimates. Call 704-285-1467.",
+  openGraph: {
+    title: "Pressure Washing Services | Red Moose Exterior",
+    description: "Professional pressure washing in Charlotte NC. Driveways, patios, decks & more.",
+    images: ["/images/Red-Moose-Pressure-Washing-Driveway.webp"],
+  },
 };
 
 export default function PressureWashingPage() {
@@ -19,14 +25,21 @@ export default function PressureWashingPage() {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="pt-20 bg-white border-b">
+        <Breadcrumbs />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gray-900">
+      <section className="relative pt-12 pb-20 bg-gray-900">
         <div className="absolute inset-0">
           <Image
             src="/images/Red-Moose-Pressure-Washing-Patio.webp"
-            alt="Pressure Washing Service"
+            alt="Professional pressure washing service in Charlotte NC"
             fill
             className="object-cover opacity-30"
+            priority
+            sizes="100vw"
           />
         </div>
         <div className="relative container-main">
@@ -142,31 +155,39 @@ export default function PressureWashingPage() {
               <div className="grid grid-cols-2 gap-4">
                 <Image
                   src="/images/Red-Moose-Parking-Deck1.png"
-                  alt="Commercial Pressure Washing"
+                  alt="Commercial parking deck pressure washing in Charlotte"
                   width={300}
                   height={400}
                   className="rounded-xl object-cover w-full h-64"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
                 <Image
                   src="/images/Red-Moose-gas-station1.png"
-                  alt="Gas Station Cleaning"
+                  alt="Gas station concrete cleaning service"
                   width={300}
                   height={400}
                   className="rounded-xl object-cover w-full h-64 mt-8"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
                 <Image
                   src="/images/Red-Moose-Restaurant-Patio1.png"
-                  alt="Restaurant Patio Cleaning"
+                  alt="Restaurant patio pressure washing"
                   width={300}
                   height={400}
                   className="rounded-xl object-cover w-full h-64"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
                 <Image
                   src="/images/Red-Moose-stadium1.png"
-                  alt="Stadium Cleaning"
+                  alt="Stadium seating pressure washing"
                   width={300}
                   height={400}
                   className="rounded-xl object-cover w-full h-64 mt-8"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
             </div>

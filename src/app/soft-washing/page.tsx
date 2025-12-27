@@ -3,13 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/interactive/BeforeAfterSlider";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CTA from "@/components/sections/CTA";
 import { services, faqs, galleryImages } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Soft Washing Services",
+  title: "Soft Washing Services Charlotte NC | Siding, Roof & Exterior Cleaning",
   description:
-    "Professional soft washing services in Charlotte, NC. Gentle cleaning for siding, roofs, stucco, and delicate surfaces. Safe, effective, long-lasting results.",
+    "Professional soft washing services in Charlotte, NC. Gentle, safe cleaning for siding, roofs, stucco, and delicate surfaces. Long-lasting results. Free estimates. Call 704-285-1467.",
+  openGraph: {
+    title: "Soft Washing Services | Red Moose Exterior",
+    description: "Professional soft washing in Charlotte NC. Safe cleaning for siding, roofs & more.",
+    images: ["/images/Red-Moose-Pressure-Washing-Siding.webp"],
+  },
 };
 
 export default function SoftWashingPage() {
@@ -19,14 +25,21 @@ export default function SoftWashingPage() {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="pt-20 bg-white border-b">
+        <Breadcrumbs />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gray-900">
+      <section className="relative pt-12 pb-20 bg-gray-900">
         <div className="absolute inset-0">
           <Image
             src="/images/Red-Moose-Pressure-Washing-Siding.webp"
-            alt="Soft Washing Service"
+            alt="Professional soft washing service for home exteriors in Charlotte NC"
             fill
             className="object-cover opacity-30"
+            priority
+            sizes="100vw"
           />
         </div>
         <div className="relative container-main">
@@ -116,10 +129,12 @@ export default function SoftWashingPage() {
             <div>
               <Image
                 src="/images/Red-Moose-Pressure-Washing-Siding.webp"
-                alt="Soft Washing Siding"
+                alt="Soft washing removes algae and mold from home siding"
                 width={600}
                 height={500}
                 className="rounded-2xl shadow-xl"
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -280,10 +295,12 @@ export default function SoftWashingPage() {
             <div>
               <Image
                 src="/images/Pressure-Washing-7-2.webp"
-                alt="Commercial Building Soft Washing"
+                alt="Commercial building soft washing in Charlotte NC"
                 width={600}
                 height={500}
                 className="rounded-2xl shadow-xl"
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

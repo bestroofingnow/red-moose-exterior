@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BeforeAfterSlider from "@/components/interactive/BeforeAfterSlider";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CTA from "@/components/sections/CTA";
 import { galleryImages } from "@/data/siteData";
 
@@ -26,8 +27,13 @@ export default function GalleryPage() {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="pt-20 bg-white border-b">
+        <Breadcrumbs />
+      </div>
+
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-gray-900">
+      <section className="pt-12 pb-12 bg-gray-900">
         <div className="container-main text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Before & After Gallery

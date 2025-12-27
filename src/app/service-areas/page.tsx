@@ -1,13 +1,18 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CTA from "@/components/sections/CTA";
 import { serviceAreas, siteConfig } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Service Areas",
+  title: "Service Areas | Pressure Washing Charlotte NC & Surrounding Cities",
   description:
-    "Red Moose Exterior serves Charlotte, NC and surrounding areas including Huntersville, Matthews, Mint Hill, Pineville, and more. Professional pressure washing and soft washing services.",
+    "Red Moose Exterior serves Charlotte, NC and surrounding areas including Huntersville, Matthews, Mint Hill, Pineville, and more. Professional pressure washing and soft washing services. Call 704-285-1467.",
+  openGraph: {
+    title: "Service Areas | Red Moose Exterior",
+    description: "Serving Charlotte NC and surrounding areas with professional pressure washing.",
+  },
 };
 
 const areaDetails = [
@@ -63,8 +68,13 @@ const areaDetails = [
 export default function ServiceAreasPage() {
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="pt-20 bg-white border-b">
+        <Breadcrumbs />
+      </div>
+
       {/* Hero */}
-      <section className="pt-32 md:pt-40 pb-12 md:pb-16 bg-gray-900">
+      <section className="pt-12 pb-12 md:pb-16 bg-gray-900">
         <div className="container-main text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Service Areas

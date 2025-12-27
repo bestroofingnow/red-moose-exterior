@@ -12,10 +12,12 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/Red-Moose-Pressure-Washing-Driveway.webp"
-          alt="Professional Pressure Washing"
+          alt="Professional pressure washing service transforming a driveway in Charlotte NC"
           fill
           className="object-cover"
           priority
+          sizes="100vw"
+          fetchPriority="high"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />

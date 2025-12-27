@@ -333,3 +333,9 @@ img, video {
 .img-zoom:hover img {
   transform: scale(1.05);
 }
+
+/* Custom Cursor - Hide default cursor */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}

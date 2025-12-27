@@ -8,7 +8,9 @@ export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [facingLeft, setFacingLeft] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const lastXRef = useRef(0);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -26,6 +28,14 @@ export default function CustomCursor() {
     document.body.classList.add("custom-cursor-active");
 
     const moveCursor = (e: MouseEvent) => {
+      // Determine direction based on movement
+      const deltaX = e.clientX - lastXRef.current;
+      if (Math.abs(deltaX) > 2) {
+        // Only change direction if movement is significant
+        setFacingLeft(deltaX < 0);
+      }
+      lastXRef.current = e.clientX;
+
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
@@ -75,7 +85,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor - Animated Moose GIF */}
+      {/* Main cursor - Moose mascot */}
       <motion.div
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
@@ -89,17 +99,17 @@ export default function CustomCursor() {
         <motion.div
           animate={{
             scale: isClicking ? 0.8 : isHovering ? 1.3 : 1,
-            rotate: isHovering ? 10 : 0,
+            scaleX: facingLeft ? -1 : 1,
+            rotate: isHovering ? (facingLeft ? -10 : 10) : 0,
           }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
           <Image
-            src="/images/moose-cursor.gif"
+            src="/images/moose-cursor.png"
             alt=""
             width={48}
             height={48}
             className="w-12 h-12 object-contain"
-            unoptimized
             priority
           />
         </motion.div>
